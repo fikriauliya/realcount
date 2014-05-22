@@ -1,0 +1,24 @@
+%h3
+  Log In or
+  = link_to "Sign up", new_registration_path(resource_name)
+.row
+  .col-xs-6.col-sm-6.col-md-6
+    %a.btn.btn-lg.btn-primary.btn-block{href: "#"} Facebook
+  .col-xs-6.col-sm-6.col-md-6
+    %a.btn.btn-lg.btn-info.btn-block{href: "#"} Google
+.login-or
+  %hr.hr-or/
+  %span.span-or or
+= form_for(resource, as: resource_name, url: session_path(resource_name), role: 'form') do |f|
+  .form-group
+    %label{for: "inputUsernameEmail"} Username or email
+    = f.email_field :email, autofocus: true, :class => 'form-control'
+  .form-group
+    %a.pull-right{href: "#"} Forgot password?
+    %label{for: "inputPassword"} Password
+    = f.password_field :password, autocomplete: "off", :class => 'form-control'
+  .checkbox.pull-right
+    %label
+      = f.check_box :remember_me
+      Remember me
+  =f.submit "Log In", :class => 'btn btn-primary'
