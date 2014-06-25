@@ -45,3 +45,5 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'devise'
 gem "haml-rails"
+
+gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]
