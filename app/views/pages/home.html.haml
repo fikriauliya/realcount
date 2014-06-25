@@ -1,4 +1,5 @@
 .row
   .col-md-9
   .col-md-3
-    =render "devise/sessions/new"
+    - unless signed_in?
+      =render "devise/sessions/new"

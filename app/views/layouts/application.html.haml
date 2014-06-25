@@ -20,18 +20,21 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{href: "#"} Project name
+          =link_to("Home", root_path, 'class' => 'navbar-brand')
         .navbar-collapse.collapse
-          %ul.nav.navbar-nav
-            %li.active
-              %a{href: "#"} Home
           %ul.nav.navbar-nav.navbar-right
             %li
               %a{href: "#about"} About
-        / /.nav-collapse
+            -if signed_in?
+              %li
+                =link_to("Sign out", destroy_user_session_path, method: :delete)
+            -else
+              %li
+                =link_to("Sign in", new_user_session_path)
+        -#.nav-collapse
     .container
       -if notice
-        %p.notice= notice
+        .alert.alert-info= notice
       -if alert
-        %p.alert= alert
+        .alert.alert-danger= alert
       = yield
