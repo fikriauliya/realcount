@@ -15,7 +15,7 @@
     %label{for: "inputUsernameEmail"} Username or email
     = f.email_field :email, autofocus: true, :class => 'form-control'
   .form-group
-    %a.pull-right{href: "#"} Forgot password?
+    = link_to "Forgot password?", new_password_path(resource_name), 'class' => 'pull-right'
     %label{for: "inputPassword"} Password
     = f.password_field :password, autocomplete: "off", :class => 'form-control'
   .checkbox.pull-right
