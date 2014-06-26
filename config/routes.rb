@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'profiles/:id', :controller => 'profiles', :action => 'show'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   root to: 'pages#home'

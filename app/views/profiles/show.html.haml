@@ -1,0 +1,41 @@
+.row
+  .col-sm-12
+    %h3
+      User Profile
+.row
+  .col-sm-2
+    #profile_picture
+  .col-sm-4
+    .col-sm-4 Name
+    .col-sm-8= @user.name
+
+    .col-sm-4 Email
+    .col-sm-8= @user.email
+
+-if @user.provider == 'facebook'
+  :javascript
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : "#{ENV['FACEBOOK_APP_ID']}",
+        xfbml      : true,
+        version    : 'v2.0'
+      });
+      FB.api("/#{@user.uid}/picture?type=large",
+        function (response) {
+          if (response && !response.error) {
+            console.log(response.data.url);
+            $("#profile_picture").html("<img src='" + response.data.url + "' style: 'width:100%'/>");
+          }
+        }
+      );
+    };
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+-else
+  :javascript
+    $("#profile_picture").html("<img src='#{asset_path('person.png')}' style='width:100%'/>");
