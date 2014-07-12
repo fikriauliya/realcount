@@ -12,6 +12,10 @@ class CrowdInputsController < ApplicationController
   def new
     @crowd_input = CrowdInput.new
     @crowd_input.tps_id = Tps.random_id
+    @crowd_input.prabowo_count = 0
+    @crowd_input.jokowi_count = 0
+    @crowd_input.broken_count = 0
+
     @my_progress = CrowdInput.where(:user_id => current_user.id).count()
     @global_progress = CrowdInput.count()
     @count_prabowo = CrowdInput.sum(:prabowo_count)

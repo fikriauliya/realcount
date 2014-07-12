@@ -1,3 +1,17 @@
+:javascript
+  $(function(){
+    $('.to-add').change(function() {
+      var total = 0;
+
+      $('.to-add').each(function () {
+        total += parseInt($(this).val());
+      });
+
+      $('#total').val(total);
+    });
+    $('#total').val(0);
+  })
+
 .row
   .col-md-3
     = form_for @crowd_input do |f|
@@ -11,12 +25,15 @@
         = f.hidden_field :tps_id
       .form-group
         = f.label :Prabowo
-        = f.number_field :prabowo_count, :class => 'form-control', :autofocus =>''
+        = f.number_field :prabowo_count, :class => 'form-control to-add', :autofocus =>''
       .form-group
         = f.label :Jokowi
-        = f.number_field :jokowi_count, :class => 'form-control'
+        = f.number_field :jokowi_count, :class => 'form-control to-add'
       .form-group
-        = f.label :Rusak
+        = f.label :Total
+        = number_field :total, 0, :id =>'total', :class => 'form-control', :disabled => ''
+      .form-group
+        = f.label 'Tidak sah'
         = f.number_field :broken_count, :class => 'form-control'
       .form-group
         = f.label :problem
