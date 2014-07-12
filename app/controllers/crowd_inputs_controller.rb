@@ -29,6 +29,7 @@ class CrowdInputsController < ApplicationController
       @count_broken = ac.to_a.sum{|a| a.bc}
 
       @top_contributors = CrowdInput.select("user_id as user_id, count(user_id) as amount").group(:user_id).order("amount DESC").limit(10)
+      @banned_users = User.where(:is_banned => true)
     else
       render :text => "Anda telah diblokir"
     end

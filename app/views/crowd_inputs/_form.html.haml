@@ -45,6 +45,12 @@
       .actions
         = f.submit 'Save', :class => 'btn btn-primary'
         = link_to "Lihat hasil", crowd_inputs_path, :class => 'btn btn-default'
+
+    %h4 Blocked users
+    %table.table.table-striped
+      -@banned_users.each do |u|
+        %tr
+          %td= u.name
   .col-md-7
     = image_tag @crowd_input.c1_url, size:"600x800"
   .col-md-2
