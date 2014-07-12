@@ -14,10 +14,10 @@
 
 .row
   .col-md-3
-    / Go to www.addthis.com/dashboard to customize your tools
-    / Go to www.addthis.com/dashboard to customize your tools
     Share:
     .addthis_sharing_toolbox
+    %b Jika didapati isian ngasal, account kamu akan diblock & semua entry kamu akan dihapus
+
     = form_for @crowd_input do |f|
       - if @crowd_input.errors.any?
         #error_explanation
