@@ -1,0 +1,17 @@
+%h1 Listing tps
+
+%table
+  %tr
+    %th Desa
+    %th Kelurahan
+    %th Tps
+    %th
+    %th
+    %th
+
+  - @tps.each do |tp|
+    %tr
+      %td= tp.desa
+      %td= tp.kelurahan_id
+      %td= tp.tps_id
+      %td= link_to tp.c1_url, tp.c1_url

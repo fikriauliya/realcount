@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Desa:
+  = @tp.desa
+%p
+  %b Kelurahan:
+  = @tp.kelurahan_id
+%p
+  %b Tps:
+  = @tp.tps_id
+
+= link_to 'Edit', edit_tp_path(@tp)
+\|
+= link_to 'Back', tps_index_path

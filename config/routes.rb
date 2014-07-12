@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tps
+
   get 'profiles/:id', :controller => 'profiles', :action => 'show'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 

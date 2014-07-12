@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  desa: MyString
+  kelurahan_id: MyString
+  tps_id: MyString
+
+two:
+  desa: MyString
+  kelurahan_id: MyString
+  tps_id: MyString
