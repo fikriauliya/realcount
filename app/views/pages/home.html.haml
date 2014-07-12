@@ -1,5 +1,19 @@
 .row
   .col-md-9
+    %h4 Data sementara
+    %table.table.table-striped
+      %tr
+        %td TPS terdata
+        %td= @global_progress
+      %tr
+        %td Prabowo
+        %td= @count_prabowo
+      %tr
+        %td Jokowi
+        %td= @count_jokowi
+      %tr
+        %td Tidak sah
+        %td= @count_broken
   .col-md-3
     - unless signed_in?
       =render "devise/sessions/new"
