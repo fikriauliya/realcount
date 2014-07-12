@@ -10,35 +10,43 @@ class CrowdInputsController < ApplicationController
 
   # GET /crowd_inputs/new
   def new
-    @crowd_input = CrowdInput.new
-    @crowd_input.tps_id = Tps.random_id
-    @crowd_input.prabowo_count = 0
-    @crowd_input.jokowi_count = 0
-    @crowd_input.broken_count = 0
+    unless current_user.is_banned
+      @crowd_input = CrowdInput.new
+      @crowd_input.tps_id = Tps.random_id
+      @crowd_input.prabowo_count = 0
+      @crowd_input.jokowi_count = 0
+      @crowd_input.broken_count = 0
 
-    @my_progress = CrowdInput.where(:user_id => current_user.id).count()
-    @global_progress = CrowdInput.count()
-    @count_prabowo = CrowdInput.sum(:prabowo_count)
-    @count_jokowi = CrowdInput.sum(:jokowi_count)
-    @count_broken = CrowdInput.sum(:broken_count)
+      @my_progress = CrowdInput.where(:user_id => current_user.id).count()
+      @global_progress = CrowdInput.count()
+      @count_prabowo = CrowdInput.sum(:prabowo_count)
+      @count_jokowi = CrowdInput.sum(:jokowi_count)
+      @count_broken = CrowdInput.sum(:broken_count)
 
-    @top_contributors = CrowdInput.select("user_id as user_id, count(user_id) as amount").group(:user_id).order("amount DESC").limit(10)
+      @top_contributors = CrowdInput.select("user_id as user_id, count(user_id) as amount").group(:user_id).order("amount DESC").limit(10)
+    else
+      render :text => "Anda telah diblokir"
+    end
   end
 
   # POST /crowd_inputs
   # POST /crowd_inputs.json
   def create
-    @crowd_input = CrowdInput.new(crowd_input_params)
-    @crowd_input.user_id = current_user.id
+    unless current_user.is_banned
+      @crowd_input = CrowdInput.new(crowd_input_params)
+      @crowd_input.user_id = current_user.id
 
-    respond_to do |format|
-      if @crowd_input.save
-        format.html { redirect_to new_crowd_input_path, notice: 'Your previous input was successfully added.' }
-        format.json { render :show, status: :created, location: @crowd_input }
-      else
-        format.html { render :new }
-        format.json { render json: @crowd_input.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @crowd_input.save
+          format.html { redirect_to new_crowd_input_path, notice: 'Your previous input was successfully added.' }
+          format.json { render :show, status: :created, location: @crowd_input }
+        else
+          format.html { render :new }
+          format.json { render json: @crowd_input.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      render :text => "Anda telah diblokir"
     end
   end
 
