@@ -14,6 +14,13 @@
       %tr
         %td Tidak sah
         %td= @count_broken
+
+    %h4 Top Contributors
+    %table.table.table-striped
+      -@top_contributors.each do |tc|
+        %tr
+          %td= tc.user.name
+          %td= tc.amount
   .col-md-3
     - unless signed_in?
       =render "devise/sessions/new"

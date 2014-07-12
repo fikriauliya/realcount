@@ -65,3 +65,10 @@
       %tr
         %td Rusak:
         %td= @count_broken
+
+    %h4 Top Contributors
+    %table.table.table-striped
+      -@top_contributors.each do |tc|
+        %tr
+          %td= tc.user.name
+          %td= tc.amount
