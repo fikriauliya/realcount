@@ -3,10 +3,8 @@
     Log In or
     = link_to "Sign up", new_registration_path(resource_name)
 .row
-  .col-xs-6.col-sm-6.col-md-6
+  .col-xs-12.col-sm-12.col-md-12
     = link_to "Facebook", user_omniauth_authorize_path(:facebook), "class" => 'btn btn-lg btn-primary btn-block'
-  .col-xs-6.col-sm-6.col-md-6
-    %a.btn.btn-lg.btn-info.btn-block{href: "#"} Google
 .login-or
   %hr.hr-or/
   %span.span-or or
