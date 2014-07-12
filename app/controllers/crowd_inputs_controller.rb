@@ -12,6 +12,8 @@ class CrowdInputsController < ApplicationController
   def new
     @crowd_input = CrowdInput.new
     @crowd_input.tps_id = Tps.random_id
+    @my_progress = CrowdInput.where(:user_id => current_user.id).count()
+    @global_progress = CrowdInput.count()
   end
 
   # POST /crowd_inputs

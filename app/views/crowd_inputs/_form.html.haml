@@ -24,5 +24,17 @@
       .actions
         = f.submit 'Save', :class => 'btn btn-primary'
         = link_to "Lihat hasil", crowd_inputs_path, :class => 'btn btn-default'
-  .col-md-9
+  .col-md-7
     = image_tag @crowd_input.c1_url, size:"600x800"
+  .col-md-2
+    %table.table.table-striped
+      %tr
+        %td Isian saya:
+        %td
+          = @my_progress
+          forms
+      %tr
+        %td Total terisi:
+        %td
+          = @global_progress
+          forms
