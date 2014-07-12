@@ -1,0 +1,28 @@
+.row
+  .col-md-3
+    = form_for @crowd_input do |f|
+      - if @crowd_input.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@crowd_input.errors.count, "error")} prohibited this crowd_input from being saved:"
+          %ul
+            - @crowd_input.errors.full_messages.each do |msg|
+              %li= msg
+      .form-group
+        = f.hidden_field :tps_id
+      .form-group
+        = f.label :Prabowo
+        = f.number_field :prabowo_count, :class => 'form-control'
+      .form-group
+        = f.label :Jokowi
+        = f.number_field :jokowi_count, :class => 'form-control'
+      .form-group
+        = f.label :Rusak
+        = f.number_field :broken_count, :class => 'form-control'
+      .form-group
+        = f.label :problem
+        = f.text_area :problem, :class => 'form-control'
+      .actions
+        = f.submit 'Save', :class => 'btn btn-primary'
+        = link_to "Lihat hasil", crowd_inputs_path, :class => 'btn btn-default'
+  .col-md-9
+    = image_tag @crowd_input.c1_url, size:"600x800"

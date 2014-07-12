@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :crowd_inputs
+
   resources :tps
 
   get 'profiles/:id', :controller => 'profiles', :action => 'show'

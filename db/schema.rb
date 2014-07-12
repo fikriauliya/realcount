@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712050723) do
+ActiveRecord::Schema.define(version: 20140712052106) do
+
+  create_table "crowd_inputs", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "tps_id"
+    t.integer  "prabowo_count"
+    t.integer  "jokowi_count"
+    t.integer  "broken_count"
+    t.text     "problem"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tps", force: true do |t|
     t.string   "desa"

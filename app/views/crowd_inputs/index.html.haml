@@ -1,0 +1,23 @@
+.row
+  .col-md-12
+    %table.table.table-striped
+      %tr
+        %th User
+        %th Tps
+        %th Prabowo
+        %th Jokowi
+        %th Broken
+        %th Problem
+
+      - @crowd_inputs.each do |crowd_input|
+        %tr
+          %td= crowd_input.user.name
+          %td= link_to crowd_input.tps_id, crowd_input.c1_url
+          %td= crowd_input.prabowo_count
+          %td= crowd_input.jokowi_count
+          %td= crowd_input.broken_count
+          %td= crowd_input.problem
+
+    %br
+
+    = link_to 'New input', new_crowd_input_path, "class" => 'btn btn-primary'

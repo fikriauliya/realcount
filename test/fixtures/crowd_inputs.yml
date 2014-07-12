@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  tps_id: 1
+  prabowo_count: 1
+  jokowi_count: 1
+  broken_count: 1
+  problem: MyText
+
+two:
+  user_id: 1
+  tps_id: 1
+  prabowo_count: 1
+  jokowi_count: 1
+  broken_count: 1
+  problem: MyText
