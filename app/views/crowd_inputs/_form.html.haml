@@ -21,7 +21,7 @@
     = form_for @crowd_input do |f|
       - if @crowd_input.errors.any?
         #error_explanation
-          %h2= "#{pluralize(@crowd_input.errors.count, "error")} prohibited this crowd_input from being saved:"
+          %h4= "#{pluralize(@crowd_input.errors.count, "error")} prohibited this crowd_input from being saved:"
           %ul
             - @crowd_input.errors.full_messages.each do |msg|
               %li= msg
