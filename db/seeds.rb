@@ -10,7 +10,7 @@
 inserts = []
 
 File.open("db/data", "r").each_line do |line|
-  desa = line[27..52].strip
+  desa = line[27..52].strip.gsub("'", "''")
   kelurahan_id = line[53..59].strip
   tps_id = line[60..63].strip
   inserts.push("('#{desa}', '#{kelurahan_id}' , '#{tps_id}')")
