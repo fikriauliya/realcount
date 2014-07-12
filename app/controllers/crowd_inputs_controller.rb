@@ -5,7 +5,7 @@ class CrowdInputsController < ApplicationController
   # GET /crowd_inputs
   # GET /crowd_inputs.json
   def index
-    @crowd_inputs = CrowdInput.all
+    @crowd_inputs = CrowdInput.paginate(:page => params[:page])
   end
 
   # GET /crowd_inputs/new
