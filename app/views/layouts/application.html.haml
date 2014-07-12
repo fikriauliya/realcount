@@ -4,12 +4,18 @@
     %meta{charset: "utf-8"}/
     %meta{content: "IE=edge", "http-equiv" => "X-UA-Compatible"}/
     %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
-    %meta{content: "", name: "description"}/
+    %meta{content: "Crowdsourcing Realcount Formulir C1 Pilpres 2014", name: "description"}/
     %meta{content: "", name: "author"}/
+    %meta{content: "Crowdsourcing Realcount Pilpres 2014", property: "og:title"}/
+    %meta{content: "Crowdsourcing Realcount Pilpres 2014", property: "og:site_name"}/
+    %meta{content: "Crowdsourcing Realcount Formulir C1 Pilpres 2014", property: "og:description"}/
+
     %title Realcount Pilpres 2014
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
+    %script{src: "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53bbbc685826fb13", type: "text/javascript"}
     = yield :header
   %body
     / Static navbar
