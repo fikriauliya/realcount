@@ -21,6 +21,7 @@ CONN = ActiveRecord::Base.connection
 puts "Inserting TPS data"
 slices = inserts.each_slice(100).to_a
 slices.each do |slice|
-  sql = "INSERT INTO TPS('desa', 'kelurahan_id', 'tps_id') VALUES #{slice.join(',')}"
+  sql = "INSERT INTO tps('desa', 'kelurahan_id', 'tps_id') VALUES #{slice.join(',')}"
   CONN.execute(sql)
 end
+puts "Inserted TPS data"
