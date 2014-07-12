@@ -51,3 +51,5 @@ gem "haml-rails"
 gem 'tzinfo-data', platforms: [:x64_mingw, :mingw, :mswin]
 gem "figaro"
 gem 'omniauth-facebook'
+
+ruby "2.1.0"
